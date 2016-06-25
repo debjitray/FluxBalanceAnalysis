@@ -1,0 +1,1734 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1" xmlns:html="http://www.w3.org/1999/xhtml">
+
+<model id="Yeast_DR" name="Yeast_DR">
+    <notes>
+      <html xmlns="http://www.w3.org/1999/xhtml"><p>COBRA_Toolbox</p></html>
+    </notes>
+    <listOfUnitDefinitions>
+      <unitDefinition id="mmol_per_gDW_per_hr">
+        <listOfUnits>
+          <unit kind="mole" scale="-3" multiplier="1" offset="0"/>
+          <unit kind="gram" exponent="-1" multiplier="1" offset="0"/>
+          <unit kind="second" exponent="-1" multiplier="0.00027777" offset="0"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+
+<listOfCompartments>
+      <compartment id="C_c" name="Cytoplasm"/>
+      <compartment id="C_m" name="Mitochondria"/>
+      <compartment id="C_e" name="Extracellular"/>
+</listOfCompartments>
+
+<listOfSpecies>
+    <species id="M_Acetate_c" name="Acetate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C2H3O2</p></html>
+        </notes>
+    </species>
+      
+    <species id="M_AcetylCoA_c" name="AcetylCoA_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C23H34N7O17P3S</p></html>
+        </notes>
+    </species>
+      
+    <species id="M_AcetylCoA_m" name="AcetylCoA_mitochondrial" compartment="C_m">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C23H34N7O17P3S</p></html>
+        </notes>
+    </species>
+      
+    <species id="M_Citrate_m" name="Citrate_mitochondrial" compartment="C_m">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C6H5O7</p></html>
+        </notes>
+    </species>
+      
+    <species id="M_IsoCitrate_m" name="IsoCitrate_mitochondrial" compartment="C_m">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C6H5O7</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Oxogluterate_m" name="Oxogluterate_mitochondrial" compartment="C_m">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C5H4O5</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Oxogluterate_c" name="Oxogluterate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C5H4O5</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_SuccinylCoA_m" name="SuccinylCoA_mitochondrial" compartment="C_m">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C25H35N7O19P3S</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Succinate_m" name="Succinate_mitochondrial" compartment="C_m">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C4H4O4</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Fumarate_m" name="Fumarate_mitochondrial" compartment="C_m">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C4H2O4</p></html>
+        </notes>
+    </species>
+
+    <species id="M_Malate_m" name="Malate_mitochondrial" compartment="C_m">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C4H4O5</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Oxaloacetate_m" name="Oxaloacetate_mitochondrial" compartment="C_m">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C4H2O5</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Oxaloacetate_c" name="Oxaloacetate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C4H2O5</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Citrate_c" name="Citrate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C6H5O7</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_IsoCitrate_c" name="IsoCitrate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C6H5O7</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Succinate_c" name="Succinate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C4H4O4</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Glyoxylate_c" name="Glyoxylate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C2H1O3</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Malate_c" name="Malate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C4H4O5</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Fumarate_c" name="Fumarate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C4H2O4</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_PhosphoenolPyruvate_c" name="PhosphoenolPyruvate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C3H2O6P</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_2PhosphoGlycerate_c" name="2PhosphoGlycerate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C3H4O7P</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_3PhosphoGlycerate_c" name="3PhosphoGlycerate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C3H4O7P</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_13BiPGlycerate_c" name="1,3 Biphospho Glycerate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C3H7O10P2</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Glyceraldehyde3P_c" name="Glyceraldehyde 3 Phosphate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C3H7O6P</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_DihydroxyacetoneP_c" name="Dihydroxyacetone phosphate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C3H7O6P</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Fructose16BP_c" name="Fructose 1,6 bisphosphate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C6H14O12P2</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Fructose6P_c" name="Fructose 6 phosphate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C6H13O9P</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Glucose6P_c" name="Glucose 6 phosphate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C6H13O9P</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Glucose1P_c" name="Glucose 1 phosphate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C6H13O9P</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Pyruvate_c" name="Pyruvate_cytoplasmic" compartment="C_c">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C3H3O3</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Pyruvate_m" name="Pyruvate_mitochondrial" compartment="C_m">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml"><p>FORMULA: C3H3O3</p></html>
+        </notes>
+    </species>
+    
+    <species id="M_Acetate_b" name="Acetate_external" compartment="C_e"/>
+    
+    <species id="M_Nucleotide1_b" name="Nucleotide1_cytoplasmic" compartment="C_c"/>
+    
+    <species id="M_Amino1_b" name="Amino1_cytoplasmic" compartment="C_c"/>
+    <species id="M_Amino2_b" name="Amino2_cytoplasmic" compartment="C_c"/>
+    <species id="M_Amino3_b" name="Amino3_mitochondrial" compartment="C_m"/>
+    <species id="M_Amino4_b" name="Amino4_internal" compartment="C_m"/>
+    <species id="M_Amino5_b" name="Amino5_cytoplasmic" compartment="C_c"/>
+    
+    <species id="M_Lipid1_b" name="Lipid1_cytoplasmic" compartment="C_c"/>
+    <species id="M_Lipid2_b" name="Lipid2_mitochondrial" compartment="C_m"/>
+    <species id="M_Lipid3_b" name="Lipid3_cytoplasmic" compartment="C_c"/>
+    <species id="M_Lipid4_b" name="Lipid4_cytoplasmic" compartment="C_c"/>
+    
+    <species id="M_Glycogen_b" name="Glycogen_cytoplasmic" compartment="C_c"/>
+    <species id="M_Trehalose_b" name="Trehalose_cytoplasmic" compartment="C_c"/>
+    
+    <species id="M_Glutamate_b" name="Glutamate_cytoplasmic" compartment="C_c"/>
+
+</listOfSpecies>
+
+<listOfReactions>
+
+	<reaction id="V1" name="Coenzyme A + Acetate + ATP => AcetylCoA + pyrophosphate + AMP" reversible="false">
+        <notes>
+          <html:p>GENE_ASSOCIATION: YLR153C</html:p>
+          <html:p>SUBSYSTEM: OTHERS</html:p>
+        </notes>
+		<listOfReactants>
+			<speciesReference species="M_Acetate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_AcetylCoA_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+
+	<reaction id="V2" name="Oxaloacetate + AcetylCoA + H2O => Citrate + Coenzyme A" reversible="false">
+        <notes>
+          <html:p>GENE_ASSOCIATION: YCR005C</html:p>
+          <html:p>SUBSYSTEM: OTHERS</html:p>
+        </notes>
+		<listOfReactants>
+			<speciesReference species="M_AcetylCoA_c" stoichiometry="1.000000"/>
+            <speciesReference species="M_Oxaloacetate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Citrate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+
+	<reaction id="V3" name="Citrate + H2O => IsoCitrate" reversible="false">
+        <notes>
+          <html:p>GENE_ASSOCIATION: YLR304C</html:p>
+          <html:p>SUBSYSTEM: OTHERS</html:p>
+        </notes>
+		<listOfReactants>
+			<speciesReference species="M_Citrate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_IsoCitrate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V4" name="IsoCitrate => Glyoxylate + Succinate" reversible="false">
+        <notes>
+          <html:p>GENE_ASSOCIATION: YER065C</html:p>
+          <html:p>SUBSYSTEM: GLYOXYLATE</html:p>
+        </notes>
+		<listOfReactants>
+			<speciesReference species="M_IsoCitrate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Succinate_c" stoichiometry="1.000000"/>
+            <speciesReference species="M_Glyoxylate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V5" name="Glyoxylate + AcetylCoA => Malate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YNL117W</html:p>
+			<html:p>SUBSYSTEM: GLYOXYLATE</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_Glyoxylate_c" stoichiometry="1.000000"/>
+            <speciesReference species="M_AcetylCoA_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Malate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V6" name="Malate + NAD => Oxaloacetate + NADH + H+" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YOL126C</html:p>
+			<html:p>SUBSYSTEM: OTHERS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_Malate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Oxaloacetate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V7" name="Oxaloacetate + GTP => CO2 + PhosphoenolPyruvate + GDP" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YKR097W</html:p>
+			<html:p>SUBSYSTEM: GLUCONEOGENESIS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_Oxaloacetate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_PhosphoenolPyruvate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V8" name="PhosphoenolPyruvate + H2O  => 2 PhosphoGlycerate " reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YGR254W</html:p>
+			<html:p>SUBSYSTEM: GLUCONEOGENESIS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_PhosphoenolPyruvate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_2PhosphoGlycerate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V9" name="2 PhosphoGlycerate => 3 PhosphoGlycerate " reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YKL152C</html:p>
+			<html:p>SUBSYSTEM: GLUCONEOGENESIS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_2PhosphoGlycerate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_3PhosphoGlycerate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V10" name="3 PhosphoGlycerate + ATP => 1,3 Biphospho Glycerate + ADP" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YCR012W</html:p>
+			<html:p>SUBSYSTEM: GLUCONEOGENESIS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_3PhosphoGlycerate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_13BiPGlycerate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V11" name="1,3 Biphospho Glycerate + NADH + H+ => Glyceraldehyde 3 phosphate + phosphate + NAD" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YJL052W or YJR009C or YGR192C</html:p>
+			<html:p>SUBSYSTEM: GLUCONEOGENESIS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_13BiPGlycerate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Glyceraldehyde3P_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V12" name="Glyceraldehyde 3 phosphate => Dihydroxyacetone phosphate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YDR050C</html:p>
+			<html:p>SUBSYSTEM: GLUCONEOGENESIS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_Glyceraldehyde3P_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_DihydroxyacetoneP_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V13" name="Dihydroxyacetone phosphate + Glyceraldehyde 3 phosphate => Fructose 1,6 bisphosphate " reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YKL060C</html:p>
+			<html:p>SUBSYSTEM: GLUCONEOGENESIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_DihydroxyacetoneP_c" stoichiometry="1.000000"/>
+			<speciesReference species="M_Glyceraldehyde3P_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Fructose16BP_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V14" name="Fructose 1,6 bisphosphate + H2O => Fructose 6 phosphate + phosphate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YLR377C</html:p>
+			<html:p>SUBSYSTEM: GLUCONEOGENESIS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_Fructose16BP_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Fructose6P_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V15" name="Fructose 6 phosphate => Glucose 6 phosphate " reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YBR196C</html:p>
+			<html:p>SUBSYSTEM: GLUCONEOGENESIS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_Fructose6P_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Glucose6P_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V16" name="Glucose 6 phosphate => Glucose 1 phosphate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YMR105C</html:p>
+			<html:p>SUBSYSTEM: GLUCONEOGENESIS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_Glucose6P_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Glucose1P_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V17" name="UDP D glucose + Glucose 6 phosphate => UDP + α,α trehalose 6 phosphate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YBR126C and YDR074W and YMR261C and YML100W</html:p>
+			<html:p>SUBSYSTEM: GLUCONEOGENESIS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_Glucose6P_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Trehalose_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="1.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V18" name="Glucose 1 phosphate => Glycogen" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YKL035W</html:p>
+			<html:p>SUBSYSTEM: GLUCONEOGENESIS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_Glucose1P_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Glycogen_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="1.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V19" name="Glycogen => Glucose 1 Phosphate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YPR160W</html:p>
+			<html:p>SUBSYSTEM: GLYCOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Glycogen_b" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+            <speciesReference species="M_Glucose1P_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V20" name="Glucose 1 phosphate => Glucose 6 phosphate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YMR105C</html:p>
+			<html:p>SUBSYSTEM: GLYCOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Glucose1P_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+            <speciesReference species="M_Glucose6P_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V21" name="Glucose 6 phosphate => Fructose 6 phosphate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YBR196C</html:p>
+			<html:p>SUBSYSTEM: GLYCOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Glucose6P_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+            <speciesReference species="M_Fructose6P_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V22" name="Fructose 6 phosphate + ATP => Fructose 1,6 bisphosphate + ADP + H+" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YGR240C and YMR205C</html:p>
+			<html:p>SUBSYSTEM: GLYCOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Fructose6P_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+            <speciesReference species="M_Fructose16BP_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V23" name="Fructose 1,6 bisphosphate => Dihydroxyacetone phosphate + Glyceraldehyde 3 phosphate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YKL060C</html:p>
+			<html:p>SUBSYSTEM: GLYCOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+			<speciesReference species="M_Fructose16BP_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+            <speciesReference species="M_Glyceraldehyde3P_c" stoichiometry="1.000000"/>
+            <speciesReference species="M_DihydroxyacetoneP_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V24" name="Dihydroxyacetone phosphate => Glyceraldehyde 3 phosphate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YDR050C</html:p>
+			<html:p>SUBSYSTEM: GLYCOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_DihydroxyacetoneP_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Glyceraldehyde3P_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V25" name="Glyceraldehyde 3 phosphate + Phosphate + NAD => 1,3 BIP Glycerate + NADH + H+" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YJL052W or YJR009C or YGR192C</html:p>
+			<html:p>SUBSYSTEM: GLYCOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Glyceraldehyde3P_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_13BiPGlycerate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V26" name="1,3 BIP Glycerate + ADP => 3 PhosphoGlycerate + ATP " reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YCR012W</html:p>
+			<html:p>SUBSYSTEM: GLYCOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_13BiPGlycerate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_3PhosphoGlycerate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V27" name="3 PhosphoGlycerate --> 2 PhosphoGlycerate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YKL152C</html:p>
+			<html:p>SUBSYSTEM: GLYCOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_3PhosphoGlycerate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_2PhosphoGlycerate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V28" name="2 PhosphoGlycerate => PhosphoenolPyruvate + H2O" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YGR254W</html:p>
+			<html:p>SUBSYSTEM: GLYCOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_2PhosphoGlycerate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_PhosphoenolPyruvate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+
+    <reaction id="V29" name="PhosphoenolPyruvate + ADP + H+ => Pyruvate + ATP" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YOR347C</html:p>
+			<html:p>SUBSYSTEM: GLYCOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_PhosphoenolPyruvate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Pyruvate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V30" name="HCO3- + Pyruvate + ATP => Phosphate + Oxaloacetate + ADP" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YGL062W or YBR218C</html:p>
+			<html:p>SUBSYSTEM: GLYCOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Pyruvate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Oxaloacetate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V31" name="Fumarate + H2O => Malate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YPL262W</html:p>
+			<html:p>SUBSYSTEM: OTHERS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Fumarate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Malate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V32" name="IsoCitrate + NADP => Oxogluterate + CO2 + NADPH" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YLR174W</html:p>
+			<html:p>SUBSYSTEM: GLUTAMATE</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_IsoCitrate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Oxogluterate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V33" name="Oxoglutarate + NH3 + NADPH + H+ => L Glutamate + H2O + NADP " reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YAL062W</html:p>
+			<html:p>SUBSYSTEM: GLUTAMATE</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Oxogluterate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Glutamate_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V1m" name="Coenzyme A [m] + NAD + Pyruvate [m] => AcetylCoA [m] + CO2 + NADH" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YER178W and YBR221C</html:p>
+			<html:p>SUBSYSTEM: GLYCOGENOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Pyruvate_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_AcetylCoA_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V2m" name="Oxaloacetate [m] + AcetylCoA [m] + H2O => Citrate [m]+ Coenzyme A [m]" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YNR001C</html:p>
+			<html:p>SUBSYSTEM: TCA</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_AcetylCoA_m" stoichiometry="1.000000"/>
+            <speciesReference species="M_Oxaloacetate_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Citrate_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V3m" name="Citrate [m]  + H2O => IsoCitrate [m]" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YLR304C</html:p>
+			<html:p>SUBSYSTEM: TCA</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Citrate_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_IsoCitrate_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V4m" name="NAD + IsoCitrate [m] => Oxoglutarate [m] + NADH + CO2" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YNL037C and YOR136W</html:p>
+			<html:p>SUBSYSTEM: TCA</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_IsoCitrate_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Oxogluterate_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V5m" name="Oxoglutarate [m] + Coenzyme A [m] + NAD => SuccinylCoA [m] + CO2 + NADH" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YFL018C and YIL125W and YDR148C</html:p>
+			<html:p>SUBSYSTEM: TCA</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Oxogluterate_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_SuccinylCoA_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V6m" name="Succinyl CoA [m] + GDP + Phosphate => Succinate [m] + Coenzyme A [m] + GTP" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YOR142W and YGR244C </html:p>
+			<html:p>SUBSYSTEM: TCA</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_SuccinylCoA_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Succinate_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V7m" name="Succinate [m] + FAD => Fumarate [m] + FADH2" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YKL148C and YLL041C and YKL141W and YDR178W</html:p>
+			<html:p>SUBSYSTEM: TCA</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Succinate_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Fumarate_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V8m" name="Fumarate [m] + H2O => Malate [m]" reversible="false">
+         <notes>
+			<html:p>GENE_ASSOCIATION: YPL262W</html:p>
+			<html:p>SUBSYSTEM: TCA</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Fumarate_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Malate_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="V9m" name="Malate [m] + NAD => Oxaloacetate [m] + NADH + H+" reversible="false">
+         <notes>
+			<html:p>GENE_ASSOCIATION: YKL085W</html:p>
+			<html:p>SUBSYSTEM: TCA</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Malate_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Oxaloacetate_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="bext" name="Acetate [e] => Acetate" reversible="false">
+         <notes>
+			<html:p>GENE_ASSOCIATION: YCR010C</html:p>
+			<html:p>SUBSYSTEM: OTHERS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Acetate_b" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Acetate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="b1" name="AcetylCoA => AcetylCoA [m]" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YML042W avg YAR035W avg YER024W</html:p>
+			<html:p>SUBSYSTEM: OTHERS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_AcetylCoA_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_AcetylCoA_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="b2" name="Oxaloacetate [m] => Oxaloacetate " reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YKL120W</html:p>
+			<html:p>SUBSYSTEM: OTHERS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Oxaloacetate_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Oxaloacetate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="b3" name="Oxaloacetate => Oxaloacetate [m]" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YKL120W</html:p>
+			<html:p>SUBSYSTEM: OTHERS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Oxaloacetate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Oxaloacetate_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="b4" name="Citrate => Citrate [m] " reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YBR291C</html:p>
+			<html:p>SUBSYSTEM: OTHERS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Citrate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Citrate_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="b5" name="IsoCitrate [m] => IsoCitrate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YBR291C</html:p>
+			<html:p>SUBSYSTEM: OTHERS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_IsoCitrate_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_IsoCitrate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="b6_b7" name="Fumarate [m] + Succinate => Fumarate + Succinate [m] " reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YJR095W</html:p>
+			<html:p>SUBSYSTEM: OTHERS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Fumarate_m" stoichiometry="1.000000"/>
+            <speciesReference species="M_Succinate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Fumarate_c" stoichiometry="1.000000"/>
+            <speciesReference species="M_Succinate_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="b8" name="Succinate + Phosphate [m] => Succinate [m] + Phosphate " reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YLR348C</html:p>
+			<html:p>SUBSYSTEM: OTHERS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Succinate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Succinate_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="b9" name="Oxogluterate [m] => Oxogluterate" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YPL134C</html:p>
+			<html:p>SUBSYSTEM: GLUTAMATE</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Oxogluterate_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Oxogluterate_c" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="b10" name="Pyruvate => Pyruvate [m]" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YIL006W</html:p>
+			<html:p>SUBSYSTEM: GLYCOGENOLYSIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Pyruvate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Pyruvate_m" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="Nucleotide1" name="Glucose 6 phosphate + NADP => D 6 phospho gluconoδlactone + NADPH + H+ -->  (Nucleotide1)" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YNL241C</html:p>
+			<html:p>SUBSYSTEM: NUCLEOTIDE_SYNTHESIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Glucose6P_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Nucleotide1_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="Amino1" name="3 PhosphoGlycerate + NAD+ => 3 PhosphohydroxyPyruvate   + H + NADH    --> [AminoAcid1]" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YER081W or YIL074C</html:p>
+			<html:p>SUBSYSTEM: AMINOACID_SYNTHESIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_3PhosphoGlycerate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Amino1_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="Amino2" name="Oxaloacetate + L glutamate => 2,Oxoglutarate + L aspartate    --> [AminoAcid2]" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YLR027C</html:p>
+			<html:p>SUBSYSTEM: AMINOACID_SYNTHESIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Oxaloacetate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Amino2_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="Amino3" name="Pyruvate [m] + NADPH + H+ + Glutamate => CO2 + NADP+ + H2O + Alpha ketoglutarate + valine    --> [AminoAcid3]" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YMR108W and YCL009C</html:p>
+			<html:p>SUBSYSTEM: AMINOACID_SYNTHESIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Pyruvate_m" stoichiometry="2.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Amino3_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="Amino4" name="Oxaloacetate [m] + L Glutamate => 2 Oxoglutarate + L Aspartate    --> [AminoAcid4]" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YKL106W</html:p>
+			<html:p>SUBSYSTEM: AMINOACID_SYNTHESIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Oxaloacetate_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Amino4_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="Amino5" name="PhosphoenolPyruvate + Skm5p => 3Psme + phosphate    --> [AminoAcid5]" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YDR127W</html:p>
+			<html:p>SUBSYSTEM: AMINOACID_SYNTHESIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_PhosphoenolPyruvate_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Amino5_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="Lipid1" name="BCCP biotin CO2 + AcetylCoA + ATP => MalonylCoA + BCCP biotin + phosphate + ADP --> Lipid1" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YNR016C</html:p>
+			<html:p>SUBSYSTEM: LIPID_SYNTHESIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_AcetylCoA_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Lipid1_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="Lipid2" name="BCCP biotin CO2 + AcetylCoA [m]+ ATP => MalonylCoA + BCCP biotin + phosphate + ADP --> Lipid2" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YMR207C</html:p>
+			<html:p>SUBSYSTEM: LIPID_SYNTHESIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_AcetylCoA_m" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Lipid2_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="Lipid3" name="Dihydroxyacetone phosphate + NADH => Glycerol 3 P + NAD  --> Lipid3" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YDL022W</html:p>
+			<html:p>SUBSYSTEM: LIPID_SYNTHESIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_DihydroxyacetoneP_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Lipid3_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+    <reaction id="Lipid4" name="Glucose 6 phosphate => Mi1p-D" reversible="false">
+        <notes>
+			<html:p>GENE_ASSOCIATION: YJL153C</html:p>
+			<html:p>SUBSYSTEM: LIPID_SYNTHESIS</html:p>
+		</notes>
+		<listOfReactants>
+            <speciesReference species="M_Glucose6P_c" stoichiometry="1.000000"/>
+		</listOfReactants>
+		<listOfProducts>
+			<speciesReference species="M_Lipid4_b" stoichiometry="1.000000"/>
+		</listOfProducts>
+		<kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+				<ci> FLUX_VALUE </ci>
+            </math>
+			<listOfParameters>
+				<parameter id="LOWER_BOUND" value="0.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="UPPER_BOUND" value="999999.000000" units="mmol_per_gDW_per_hr"/>
+				<parameter id="OBJECTIVE_COEFFICIENT" value="0.000000"/>
+                <parameter id="FLUX_VALUE" value="0.000000" units="mmol_per_gDW_per_hr"/>
+			</listOfParameters>
+		</kineticLaw>
+    </reaction>
+    
+</listOfReactions>
+</model>
+</sbml>    
+    
